@@ -1,33 +1,8 @@
-// @flow
 import * as d3 from 'd3'
 
-export type TrackId = 'MOBILE' | 'WEB_CLIENT' | 'FOUNDATIONS' | 'SERVERS' |
-  'PROJECT_MANAGEMENT' | 'COMMUNICATION' | 'CRAFT' | 'INITIATIVE' |
-  'CAREER_DEVELOPMENT' | 'ORG_DESIGN' | 'WELLBEING' | 'ACCOMPLISHMENT' |
-  'MENTORSHIP' | 'EVANGELISM' | 'RECRUITING' | 'COMMUNITY'
-export type Milestone = 0 | 1 | 2 | 3 | 4 | 5
-
-export type MilestoneMap = {
-  'MOBILE': Milestone,
-  'WEB_CLIENT': Milestone,
-  'FOUNDATIONS': Milestone,
-  'SERVERS': Milestone,
-  'PROJECT_MANAGEMENT': Milestone,
-  'COMMUNICATION': Milestone,
-  'CRAFT': Milestone,
-  'INITIATIVE': Milestone,
-  'CAREER_DEVELOPMENT': Milestone,
-  'ORG_DESIGN': Milestone,
-  'WELLBEING': Milestone,
-  'ACCOMPLISHMENT': Milestone,
-  'MENTORSHIP': Milestone,
-  'EVANGELISM': Milestone,
-  'RECRUITING': Milestone,
-  'COMMUNITY': Milestone
-}
 export const milestones = [0, 1, 2, 3, 4, 5]
 
-export const milestoneToPoints = (milestone: Milestone): number => {
+export const milestoneToPoints = (milestone) => {
   switch (milestone) {
     case 0: return 0
     case 1: return 1
@@ -59,301 +34,297 @@ export const pointsToLevels = {
 
 export const maxLevel = 135
 
-export type Track = {
-  displayName: string,
-  category: string, // TK categoryId type?
-  description: string,
-  milestones: {
-    summary: string,
-    signals: string[],
-    examples: string[]
-  }[]
-}
-
-type Tracks = {|
-  'MOBILE': Track,
-  'WEB_CLIENT': Track,
-  'FOUNDATIONS': Track,
-  'SERVERS': Track,
-  'PROJECT_MANAGEMENT': Track,
-  'COMMUNICATION': Track,
-  'CRAFT': Track,
-  'INITIATIVE': Track,
-  'CAREER_DEVELOPMENT': Track,
-  'ORG_DESIGN': Track,
-  'WELLBEING': Track,
-  'ACCOMPLISHMENT': Track,
-  'MENTORSHIP': Track,
-  'EVANGELISM': Track,
-  'RECRUITING': Track,
-  'COMMUNITY': Track
-|}
-
-export const tracks: Tracks = {
+export const tracks = {
   "MOBILE": {
     "displayName": "Mobile",
     "category": "A",
-    "description": "Develops expertise in native mobile platform engineering, such as iOS or Android",
+    "description": "Développer une expertise dans l'ingénierie de plate-forme mobile native, telle que iOS ou Android",
     "milestones": [{
-      "summary": "Works effectively within established iOS or Android architectures, following current best practices",
+      "summary": "Travaille efficacement dans les architectures iOS ou Android, en suivant les meilleures pratiques actuelles",
       "signals": [
-        "Delivers features requiring simple local modifications",
-        "Adds simple actions that call server endpoints",
-        "Reuses existing components appropriately",
+        "Corrige un bug mineur dans l'application",
+        "Modifier un composant UI existant",
+        "Ajoute une fonctionalité mineure à une interface utilisateur existante",
+        "Sait utiliser un gestionnaire de dépendance pour ajouter une nouvelle lib à l'application",
+        "Développe une nouvelle fonctionalité en faisant un appel à une API externe",
       ],
       "examples": [
-        "Added existing button to a different iOS surface",
-        "Add follow button for publications on Android",
-        "Fetched and displayed a new stream, using existing stream item styles",
+        "Fixer un problème de label tronqué dans l’écran du détail d’une campagne",
+        "Ajoute la configuration d’une nouvelle animation au composant de “Loader” dans la librairie de composants UI interne",
+        "Ajouter un deuxième bouton “candidater” dans l’écran du détail d’une campagne ibbü",
+        "Intègre une nouvelle lib en utilisant Cocoapods ou Gradle",
+        "Intégrer l’API permettant d’enregistrer le push token de l’expert ibbü sur le serveur iAdvize"
       ],
     }, {
-      "summary": "Develops new instances of existing architecture, or minor improvements to existing architecture",
+      "summary": "Développe de nouvelles instances de l'architecture existante ou apporte des améliorations mineures à l'architecture existante",
       "signals": [
-        "Defines new useful and appropriate proto-generated objects",
-        "Creates simple new activities on Android",
-        "Migrates code from old patterns to new patterns",
+        "Sait utiliser les outils de gestion des applications mobiles",
+        "Autonome sur le détection, l'analyse et la résolution de bugs 'classiques'",
       ],
       "examples": [
-        "Upgraded SDWebImage to a new major version",
-        "Added support for rendering a new type of stream item",
-        "Prototyped a simple new feature quickly",
+        "A publié une nouvelle version de l'application sur le Store (Apple/Google)",
       ],
     }, {
-      "summary": "Designs major new features and demonstrates a nuanced understanding of mobile platform constraints",
+      "summary": "Conçoit de nouvelles fonctionnalités majeures et démontre une compréhension des contraintes de plate-forme mobileDesigns major new features and demonstrates a nuanced understanding of mobile platform constraints",
       "signals": [
-        "Implements complex features with a large product surface area",
-        "Works effectively with  Android reactive programming framework",
-        "Adds support for new iOS features after a major iOS version upgrade",
+        "Autonome sur la détection, l'analyse et la résolution de bugs 'complexes'",
+        "Maîtrise l'architecture MVC et connaît au moins un autre type d'architecture",
+        "Maîtrise les outils de gestion des applications mobiles",
+        "Ajout du support d'une nouvelle feature iOS après une maj majeur de iOS"
       ],
       "examples": [
-        "Designed iOS caching strategy for offline reading",
-        "Built series reader on Android",
-        "Informed the team about recent best practice changes and deprecations",
+        "Correction d’une fuite mémoire dans la gestion des messages de conversation",
+        "Connaît MVC et comprend MVVM (iOS) / MVP (Android)",
+        "Maîtrise le workflow de publication d'apps sur le store",
+        "Maîtrise la création et la mise en place de notifications push sur une app (création du certificat jusqu'à l'implémentation côté mobile)",
+        "Support du Dark Mode",
+        "A ajouté le support de l'accessibilité dans l'app ibbu",
+        "Refacto du module de conversations",
       ],
     }, {
-      "summary": "Builds complex, reusable architectures that pioneer best practices and enable engineers to work more effectively",
+      "summary": "Construit des architectures complexes et réutilisables qui impulsent les meilleures pratiques et permettent aux ingénieurs de travailler plus efficacement",
       "signals": [
-        "Pioneers architecture migration strategies that reduce programmer burden",
-        "Fixes subtle memory management issues",
-        "Implements interactive dismissals that bring delight",
+        "A impulser des changements  de l'architecture qui réduisent le fardeau du programmeur",
+        "Maîtrise les architectures mobiles 'classiques'",
+        "Comprend et sait implémenter des notions plus avancées du framework iOS/Android",
       ],
       "examples": [
-        "Upgraded CocoaPods to a new major version",
-        "Designed architecture for fetching and rendering stream items",
-        "Migrated Android persistance layer to reactive programming",
+        "Mise en place d'une architecture modulaire pour le partage de code ibbü/CTY",
+        "Maîtrise MVC et MVVM (iOS) / MVP (Android)",
+        "Implémentation des coroutines Kotlin",
+        "Gestion de téléchargement multiples avec queuing/threads",
       ],
     }, {
-      "summary": "Is an industry-leading expert in mobile engineering or sets strategic mobile direction for an eng team",
+      "summary": "Définit une direction mobile stratégique pour une équipe d'ingénieurs",
       "signals": [
-        "Defines long-term goals and ensures active projects are in service of them",
-        "Designs and builds innovative, industry-leading UI interactions",
-        "Invents new techniques to responsibly stretch limits of the Android platform",
+        "Définit la vision technique mobile à long terme et s'assure que les projets en cours sont alignés avec cette dernière",
+        "A une connaissance appronfondi de l'écosystème et peux faire des choix en toute objectivité",
+        "Introduit des choix technologiques et des patterns applicatifs majeurs dans l'application",
+        "Industrialise le workflow de développement et de production des apps pour augmenter la productivité de l'équipe entière",
+      ],
+      "examples": [],
+    }],
+  },
+
+  "FRONTEND": {
+    "displayName": "Frontend",
+    "category": "A",
+    "description": "Developper une expertise dans les technologies web coté client, telle que HTML, CSS, et JavaScript",
+    "milestones": [{
+      "summary": "Travaille efficacement dans les architectures web client, apporte des améliorations mineures à des applications existantes",
+      "signals": [
+        "Sait fixer un bug dans une application existante",
+        "Fait des changements mineures dans des pages existantes (static ou au sein d’une application react)",
+        "Utilise CSS/JS correctement en suivant les guides lines de base",
+        "Sait utiliser le débug tool",
+        "Sait créer un composant react simple au sein de la FUIL",
+      ],
+      "examples": [],
+    }, {
+      "summary": "Développe de nouvelles applications en suivant les process recommandés",
+      "signals": [
+        "Sait adapter et rendre des pages responsive",
+        "Sait transformer du code impératif en fonctionnel",
+        "Implémente les normes w3c / a11y",
+        "Connait et sait configuer les outils de build front end utilisés (web pack, rollup..)",
+        "Connait les outils de test",
       ],
       "examples": [
-        "Defined and drove complete migration plan to Swift or Kotlin",
-        "Implemented Android recycler views before platform support existed",
-        "Pioneered application-level abstractions for multi-app environment",
+        "A migré les campagnes ibbu en Rx au sein du core-admin-app en redux",
+        "A mi en place un formulaire avec redux-form",
+        "A implémenté la suppression d'un message dans le livefeed (appel serveur, action, reducer, saga basique)",
+        "A implémenté un middleware from scratch",
+        "A remis en question le design d'un composant pour son manque d'a11y",
+        "A améliorer la conf webpack d'une app",
+        "A testé toute la logique de son code avec des tests unitaires (reducer, sagas, selecteurs)",
+      ],
+    }, {
+      "summary": "Connait la stack technique dans laquelle il évolue et démontre une compréhension des contraintes",
+      "signals": [
+        "Créer des outils ou automatise pour faciliter le développement et/ou le workflow",
+        "Automatise et assure la qualité de son développement (et de ceux de son équipe)",
+        "Fournit des feedbacks utiles sur la conception et suggère des alternatives réalisables",
+        "Mise en place de composants complexe",
+        "Sait organiser le state d'une application avec redux",
+      ],
+      "examples": [
+        "A créé une librairie de composants déjà compilés avec webpack ou rolloup",
+        "Défini et met en avant le worflow du CI",
+        "A implémenté sentry au sein de son app",
+        "A fait des présentations au comité front sur sa veille",
+        "A remis en question le code de l'app ibbu",
+        "A créé un provider de thèmes pour les composants fixes",
+        "A créé un provider de traduction",
+        "A refacto une feature du desk en redux",
+      ],
+    }, {
+      "summary": "Construit des architectures complexes en contournant les limites du légacy et/ou des librairies implémentés",
+      "signals": [
+        "Connait autres frameworks / librairies en-dehors des utilisés aujourd’hui chez iAdvize",
+        "Sait contourner les limites des librairies ou du légacy",
+        "Démontre une compréhension profonde du comment marchent les librairies",
+        "A impulser des changements d'architecture / Fait des choix architecturaux impactants",
+        "Sait s’intégrer dans du légacy, améliorer le code de manière itérative et est conscient de l'impact des modifications faites",
+        "Impulse la standardisation des bonnes pratiques front",
+      ],
+      "examples": [
+        "A fait des POC sur de nouveaux outils / librairies et apporte un regard objectif sur l’utilisation d’autre librairies",
+        "A fait une prez dans un meetup ou dans un event local",
+        "Développement d’une rétrocompatibilité pour assurer la migration vers react 17",
+        "A créé une lib pemettant de définir l'état de la data",
+        "A fait le choix d'implémenter la chatbox du livechat dans une iframe",
+        "A splitté le core-admin-app afin de pouvoir implémenter typescript",
+        "A élaboré une stratégie de refonte afin de bien l'intégrer dans le légacy (statebox / thread de conversation / chatbox côté livechat)",
+        "Remet en question l’architecture implémenté pour assurer le développement futur de manière itérative (refonte de la chatbox côté livechat, refonte du livefeed)",
+        "A créé la lib des types permettant de standardiser les typescript types",
+      ],
+    }, {
+      "summary": "Définit une direction frontend stratégique pour une équipe d'ingénieurs",
+      "signals": [
+        "Défini une vision long terme et s’assure que les projets suivent cette vision",
+        "Identifie des problèmes récurrents dans différents projets",
+        "Choix des technologies à employer",
+      ],
+      "examples": [
+        "Création du playground", 
+        "Passage à storybook",
+        "Création des master reviewers",
+        "Split de la FUIL idz / ibbu",
+        "Partir sur du react / redux",
+        "Mise en place du typage",
       ],
     }],
   },
 
-  "WEB_CLIENT": {
-    "displayName": "Web client",
+  "SYSTEME": {
+    "displayName": "Système",
     "category": "A",
-    "description": "Develops expertise in web client technologies, such as HTML, CSS, and JavaScript",
+    "description": "Développe une expertise dans l’ingénierie système en utilisant des technologies comme AWS , terraform , nomad, docker ….",
     "milestones": [{
-      "summary": "Works effectively within established web client architectures, following current best practices",
+      "summary": "Travaille efficacement dans les architectures système, en suivant les meilleures pratiques actuelles",
       "signals": [
-        "Makes minor modifications to existing screens",
-        "Fixes simple design quality issues",
-        "Uses CSS appropriately, following style guide",
+        "Effectue des modifications de configuration simples",
+        "Savoir utiliser les outils de monitoring pour lire des logs, collecter des datas , les ressources système utilisées",
+        "Etre capable de se connecter en SSH sur sa devbox",
       ],
       "examples": [
-        "Implemented sticky footer on the post page",
-        "Hooked up the action to dismiss a post from a stream",
-        "Built PaymentHistory screen using ResponseScreen",
+        "A modifié une image Docker de base (PHP, scala, etc.)",
+        "A écrie un fichier de conf inframe pour deployer un service",
+        "A executer un chef-client",
+        "A modifié une var d'env directement dans consul pour permettre de vérifier un bug",
       ],
     }, {
-      "summary": "Develops new instances of existing architecture, or minor improvements to existing architecture",
+      "summary": "Connait l'architecture existante et y apporte des améliorations mineures",
       "signals": [
-        "Makes sensible abstractions based on template and code patterns",
-        "Specs and builds interactive components independently",
-        "Prototypes simple new features quickly",
+        "Etre capable de troubleshooter une devbox",
+        "Comprendre les metrics cloudwatch et prometeus",
+        "Pratique une veille techno active",
       ],
       "examples": [
-        "Built credit card input component",
-        "Created shared buttons template",
-        "Built modal system",
+        "A créé un job générique sur rundeck pour pouvoir déployer n'importe quel service sous inframe ***",
+        "A déployé une nouvelle instance d'un env complet sur AWS",
+        "A développer un component inframe simple",
+        "Killer un server qui ne marche plus",
+        "Tuer une instance depuis la console AWS / CLI"
       ],
     }, {
-      "summary": "Designs major new features and demonstrates a nuanced understanding of browser constraints",
+      "summary": "Fait évoluer l'architecture existante et y apporte des améliorations majeures",
       "signals": [
-        "Provides useful design feedback and suggests feasible alternatives",
-        "Performs systemic tasks to significantly minimise bundle size",
-        "Acts a caretaker for all of web client code",
+        "Effectue des mises à jour de la plateforme vers des version majeures",
+        "Conçoit des systèmes modérément complexes",
+        "Comprend et implémente es applications possibles des nouvelles techno et pratiques",
+        "Maitrise les usages spécifiques de iadvize",
       ],
       "examples": [
-        "Designed font loading strategy for Medium",
-        "Researched utility of service workers for Medium",
-        "Designed and implemented ResponseScreen",
+        "A concu Inframe",
+        "A concu et déployé avec inframe un auto-scalling group avec des instances mixtes",
+        "A permis de réduire les couts du datamining en implémentant une nouvelle fonctionnalité AWS",
       ],
     }, {
-      "summary": "Builds complex, reusable architectures that pioneer best practices and enable engineers to work more effectively",
+      "summary": "Construit des architectures complexes et réutilisables qui impulsent les meilleures pratiques et permettent aux ingénieurs de travailler plus efficacement",
       "signals": [
-        "Pioneers architecture migrations that reduce programmer burden",
-        "Implements complex UI transitions that bring delight",
-        "Makes architectural decisions that eliminate entire classes of bugs",
+        "Conçoit des projets complexes qui englobent plusieurs systèmes et technologies",
+        "Participe à stabiliser et améliorer la qualité de la plateforme en automatisant les taches récurrente , ( réductio des erreurs humaines )",
+        "Introduit des nouvelles technologies pour répondre aux besoins mal déservies",
       ],
       "examples": [
-        "Designed Medium's post morpher and delta system",
-        "Implemented Medium's scrolling text over image blur",
-        "Designed and pioneered proto-based model storage",
+        "A mis en place du continuous delivery avec Jenkins pour la plateforme .",
+        "A mis en place la stack de monitoring prometheus grafana",
       ],
     }, {
-      "summary": "Is an industry-leading expert in web client or sets strategic web client direction for an eng team",
+      "summary": "Définit une direction stratégique pour une SWARM et/ou la R&D",
       "signals": [
-        "Invents new techniques to innovate and overcome browser constraints",
-        "Identifies and solved systemic problems with current architecture",
-        "Defines a long-term vision for web client and ensures projects are in service of it",
+        "Developpe et implémente la stratégie de Haute Dispo",
       ],
       "examples": [
-        "Invented CSS in JS",
-        "Defined and drove migration strategy to Lite",
-        "Implemented unidirectional data flow to completion",
+        "Définie et développe la stratégie de continuous delivery",
       ],
     }],
   },
 
-  "FOUNDATIONS": {
-    "displayName": "Foundations",
+  "BACKEND": {
+    "displayName": "Backend",
     "category": "A",
-    "description": "Develops expertise in foundational systems, such as deployments, pipelines, databases and machine learning",
+    "description": "Développe une expertise dans l'ingénierie côté serveur, en utilisant des technologies telles que Scala, PHP, ou Elixir",
     "milestones": [{
-      "summary": "Works effectively within established structures, following current best practices",
+      "summary": "Connait les frameworks backend et suit les meilleures pratiques d'iAdvize",
       "signals": [
-        "Writes thorough postmortems for service outages",
-        "Makes simple configuration changes to services",
-        "Performs backfills safely and effectively, without causing pages",
+        "Copie un fonctionnement sur un autre service et l'adapte à sa problématique",
+        "Crée un endpoint scala Play",
+        "Effectue des changements mineures dans un service pour adapter une feature",
       ],
       "examples": [
-        "Made safe and effective Ansible changes",
-        "Implemented new ETL pipelines based on existing ones",
-        "Resolved out of disk errors independently",
+        "A créé un endpoint dans l'admin pour pouvoir afficher les pages ibbü",
+        "A ajouté le champ 'status' sur l'API de ongoingconversation",
+        "A ajouté un filtre sur le legacy ID dans la conversation API",
       ],
     }, {
-      "summary": "Develops new instances of existing architecture, or minor improvements to existing architecture",
+      "summary": "Construit un service de bout en bout en autonomie",
       "signals": [
-        "Made minor version upgrades to technologies",
-        "Builds machine learning jobs within the ML framework",
-        "Triages service issues correctly and independently",
+        "Évalue l'exactitude et l'utilité du code existant et évite le copier-coller aveugle",
+        "Factorise quand c'est nécessaire",
+        "Dessine les tables / bdd nécessaires pour l'implémentation d'une feature",
       ],
       "examples": [
-        "Upgraded NodeJS from 8.0 to 8.1.1",
-        "Built custom packages for RPMs",
-        "Improved ETL efficiency by improving Dynamo to S3 loading",
+        "A intégré twitter4s pour le social",
+        "A construit la machine a état dans le employment-campaign-api-service",
+        "A créé un service avec Lagom pour faire du CQRS / ES",
       ],
     }, {
-      "summary": "Designs standalone systems of moderate complexity, or major new features in existing systems",
+      "summary": "Construit des architectures multi-service performantes et robustes",
       "signals": [
-        "Acts as primary maintainer for existing critical systems",
-        "Designs moderately complex systems",
-        "Makes major version upgrades to libraries",
+        "Est maintainer principal pour un service inclus dans le critical path",
+        "Profite de l'implémentation de nouvelles feature pour revoir le fonctionnement de plusieurs services et de l'architecture du domaine",
+        "Fournit des feedbacks utiles sur la conception et suggère des alternatives réalisables",
       ],
       "examples": [
-        "Designed Ansible configuration management",
-        "Built Medium's realtime stats pipeline",
-        "Designed flexible framework for writing machine learning jobs",
+        "A développé des worker de resynchro des conversations onsite et social",
+        "A créé un service de crédit et une interface avec MangoPay pour la rémunérations des experts ibbü",
+        "A créé le système de webhook dans le domaine integration permettant de diffuser des events",
+        "A conçu et développé l'architecture de récolte des transactions visiteur",
       ],
     }, {
-      "summary": "Builds complex, reusable architectures that pioneer best practices for other engineers, or multi-system services",
+      "summary": "Impulse les meilleures pratiques et standardise le développement backend chez iAdvize. Porte les chantiers techniques stratégiques",
       "signals": [
-        "Designs complex projects that encompass multiple systems and technologies",
-        "Demonstrates deep knowledge of foundational systems",
-        "Introduces new databases and technologies to meet underserved needs",
+        "Porte une vision de l'évolution du domaine et de son architecture logicielle",
+        "Évite les erreurs architecturales subtiles lors de l'examen de nouveaux systèmes",
+        "Crée des outils qui rendent plus efficace le développement backend",
       ],
       "examples": [
-        "Designed and built BBFD",
-        "Designed AWS configuration management",
-        "Introduced Kinesis and pioneered streaming events pipeline",
+        "A conçu et développé le nouveau workflow asynchrone des conversations",
+        "A standardisé la consommations d'API depuis un service Scala",
+        "A conçu et développé la plate-forme graphQL",
       ],
     }, {
-      "summary": "Is an industry-leading expert in foundational engineering or sets strategic foundational direction for an eng team",
+      "summary": "Définit une direction stratégique pour une équipe d'ingénieurs",
       "signals": [
-        "Designs transformational projects in service of long-term goals",
-        "Defines the strategic vision for foundational work and supporting technologies",
-        "Invents industry-leading techniques to solve complex problems",
+        "Conçoit des projets d'une complexité et d'une portée significatives",
+        "Concoit la structure backend chez iAdvize",
+        "Identifie et résout les problèmes systémiques avec l'architecture actuelle",
       ],
       "examples": [
-        "Invented a novel ML technique that advanced the state of the art",
-        "Defined and developed Medium's continuous delivery strategy",
-        "Developed and implemented HA strategy",
-      ],
-    }],
-  },
-
-  "SERVERS": {
-    "displayName": "Servers",
-    "category": "A",
-    "description": "Develops expertise in server side engineering, using technologies such as Go, NodeJS, or Scala",
-    "milestones": [{
-      "summary": "Works effectively within established server side frameworks, following current best practices",
-      "signals": [
-        "Adds NodeJS endpoints using layers architecture",
-        "Adds golang endpoints using Gotham architecture",
-        "Makes minor server changes to support client needs",
-      ],
-      "examples": [
-        "Added IFTTT trigger for new bookmark to medium2",
-        "Added delete audio route to Buggle",
-        "Queried a Dynamo LSI appropriately",
-      ],
-    }, {
-      "summary": "Develops new instances of existing architecture, or minor improvements to existing architecture",
-      "signals": [
-        "Assesses correctness and utility of existing code and avoids blind copy-pasting",
-        "Generalizes code when appropriate",
-        "Determines data needs from product requirements",
-      ],
-      "examples": [
-        "Identified need for new index on Dynamo",
-        "Acted as caretaker for routes protos",
-        "Updated Facebook API version and codebase dependencies",
-      ],
-    }, {
-      "summary": "Designs standalone systems of moderate complexity, or major new features in existing systems",
-      "signals": [
-        "Acts as primary maintainer for existing critical systems",
-        "Integrates third party services effectively",
-        "Writes playbooks for new service maintenance",
-      ],
-      "examples": [
-        "Implemented Google Auth login to Medium",
-        "Implemented payments integration with Stripe",
-        "Built Textshots server",
-      ],
-    }, {
-      "summary": "Builds complex, reusable architectures that pioneer best practices for other engineers, or multi-system services",
-      "signals": [
-        "Delivers complex systems that achieve their goals",
-        "Avoids subtle architectural mistakes when considering new systems",
-        "Makes appropriate buy vs build choices",
-      ],
-      "examples": [
-        "Designed Medium's ranked feed architecture",
-        "Designed custom domains architecture",
-        "Created Gotham framework for creating Go services",
-      ],
-    }, {
-      "summary": "Is an industry-leading expert in server side engineering or sets strategic server side direction for an eng team",
-      "signals": [
-        "Designs transformational projects of significant complexity and scope",
-        "Makes decisions that have positive, long term, wide ranging consequences",
-        "Identifies and solves systemic problems with current architecture",
-      ],
-      "examples": [
-        "Researched, vetted, and selected Go as Medium's statically typed language",
-        "Defined microservices architecture and medium2 migration plan",
-        "Defined and implemented proprietary IP core to the company's success",
+        "A introduit un nouveau langage backend",
+        "A défini l'architecture microservices et le plan de migration vers cette archi",
       ],
     }],
   },
@@ -361,66 +332,66 @@ export const tracks: Tracks = {
   "PROJECT_MANAGEMENT": {
     "displayName": "Project management",
     "category": "B",
-    "description": "Delivers well-scoped programs of work that meet their goals, on time, to budget, harmoniously",
+    "description": "Fournit des plans d'action bien définis qui répondent à leurs objectifs, respectent les délais",
     "milestones": [{
-      "summary": "Effectively delivers individual tasks",
+      "summary": "Delivre efficacement les tâches assignées",
       "signals": [
-        "Estimates small tasks accurately",
-        "Delivers tightly-scoped projects efficiently",
-        "Writes effective technical specs outlining approach",
+        "S'implique dans les estimations des tâches du sprint et estime avec précision",
+        "Participe activement à réaliser les objectifs du sprint",
+        "Ecrit les acceptances tests de sa tâche pour la recette",
       ],
       "examples": [
-        "Wrote the technical spec for featured post images",
-        "Delivered stream item support for email digests",
-        "Delivered payment history dashboard",
+        "A terminé son sprint sans surprise : les tickets qui devaient passer sont passé, ceux qui ne passent pas on sait pourquoi",
+        "S'est assuré que ses tickets passent la revue de code et que la fonctionnalité soit testée par un autre développeur",
       ],
     }, {
-      "summary": "Effectively delivers small personal projects",
+      "summary": "Délivre efficacement un petit projet",
       "signals": [
-        "Performs research and considers alternative approaches",
-        "Balances pragmatism and polish appropriately",
-        "Defines and hits interim milestones",
+        "Découpe les product backlog items avec la dev team en prenant en compte les contraintes produit",
+        "Planifie le sprint et exprime clairement la capacité de la dev team à délivrer ce qui est défini dans le sprint backlog",
+        "Fait des compromis avec le produit pour avoir un incrément à la fin du sprint",
+        "Écrit des spécifications techniques nécessaire au démarrage du projet",
+        "Mène un projet de 2 sprints ou moins",
       ],
       "examples": [
-        "Delivered promo editor",
-        "Delivered audio uploading for web client",
-        "Executed the recommends to claps backfill",
+        "A géré le projet SMS de bout en bout",
+        "A pris en compte les métriques des sprints précédent pour planifier le suivant",
+        "A préparé et animé une démo en review à des parties prenantes",
+        "A géré le projet des notifications emails de l'asynchrone",
       ],
     }, {
-      "summary": "Effectively delivers projects through a small team",
+      "summary": "Coordonne et s'assure que l'équipe délivre un projet de cycle",
       "signals": [
-        "Delegates tasks to others appropriately",
-        "Integrates business needs into project planning",
-        "Chooses appropriate project management strategy based on context",
+        "Réagit rapidement à un imprévu et trouve une solution sans compromettre les objectifs du sprint ou du cycle",
+        "Anime, pousse à la décision et aligne l'équipe dans les projets sur les choix fonctionnels ou technique",
+        "Accompagne le produit dans la construction de la roadmap et la planification des cycles",
+        "Prends régulièrement le rôle d'Engineering Project Manager sur un projet",
       ],
       "examples": [
-        "Ran project retro to assess improvement opportunities",
-        "Completed launch checklist unprompted for well controlled rollout",
-        "Facilitated project kickoff meeting to get buy-in",
+        "A ajouté / supprimé un ou des tickets dans le sprint pour s'adapter à la situation",
+        "A délivré le projet GDPR en temps et en heure malgré les imprévus et les deadlines serrées",
+        "A provoqué un refinement pour estimer la mise place de webhook via Kafka",
+      ]
+    }, {
+      "summary": "Délivre des projets demandant de planifier sur plusieurs cycles",
+      "signals": [
+        "Trouve les moyens de fournir le scope demandé plus rapidement et de prioriser le backlog",
+        "Gère les dépendances sur d'autres projets et équipes",
+        "Capitalise sur les expériences de projets précédents et créer du cadre",
+      ],
+      "examples": [
+        "A été Engineering Project Manager le projet SDK ou Asynchrone",
+        "A mis en place le point hebdo asynchrone pour coordonner les développements des 3 équipes impliquées",
+        "A organisé la rétro sur les customs data en incluant tous les pôles concernés",
       ],
     }, {
-      "summary": "Effectively delivers projects through a large team, or with a significant amount of stakeholders or complexity",
+      "summary": "Gère les projets majeures livrées par plusieurs équipes",
       "signals": [
-        "Finds ways to deliver requested scope faster, and prioritizes backlog",
-        "Manages dependencies on other projects and teams",
-        "Leverages recognition of repeated project patterns",
+        "Considère les contraintes externes et les objectifs business lors de la planification",
+        "Structure de nouvelles méthodes de project management",
       ],
       "examples": [
-        "Oversaw technical delivery of Hightower",
-        "Managed infrastructure migration to VPC",
-        "Involved marketing, legal, and appropriate functions at project start",
-      ],
-    }, {
-      "summary": "Manages major company pushes delivered by multiple teams",
-      "signals": [
-        "Considers external constraints and business objectives when planning",
-        "Leads teams of teams, and coordinates effective cross-functional collaboration",
-        "Owns a key company metric",
-      ],
-      "examples": [
-        "Managed technical migration to SOA",
-        "Lead technical delivery of 10/7",
-        "Delivered multi-month engineering project on time",
+        "A mis en place le 6.6 Framework",
       ],
     }],
   },
@@ -428,66 +399,76 @@ export const tracks: Tracks = {
   "COMMUNICATION": {
     "displayName": "Communication",
     "category": "B",
-    "description": "Shares the right amount of information with the right people, at the right time, and listens effectively",
+    "description": "Partage la bonne quantité d'informations avec les bonnes personnes, au bon moment, et écoute efficacement",
     "milestones": [{
-      "summary": "Communicates effectively to close stakeholders when called upon, and incorporates constructive feedback",
+      "summary": "Communique efficacement avec PM, Designers ou développeurs concernés (travaillant sur le même projet)",
       "signals": [
-        "Communicates project status clearly and effectively",
-        "Collaborates with others with empathy",
-        "Asks for help at the appropriate juncture",
+        "Communique le statut et les avancés du projet clairement et efficacement",
+        "Collabore avec les autres avec empathie",
+        "Demande de l'aide au moment opportun",
       ],
       "examples": [
-        "Updated The Watch before running a backfill",
-        "Updated project status changes in Asana promptly",
-        "Gave thoughtful check-in and check-out comments",
+        "A su remonter un blocage ou un retard sur le projet qui impactait l’objectif du sprint",
+        "Les commentaires apportés aux CR sont constructifs et suggèrent des alternatives",
+        "S’est rapproché d’un développeur aillant plus d’expertise lors d’une difficulté rencontré",
       ],
     }, {
-      "summary": "Communicates with the wider team appropriately, focusing on timeliness and good quality conversations",
+      "summary": "Communique de manière appropriée avec sa swarm, en mettant l'accent sur la rapidité et la qualité des conversations",
       "signals": [
-        "Practises active listening and suspension of attention",
-        "Ensures stakeholders are aware of current blockers",
-        "Chooses the appropriate tools for accurate and timely communication",
+        "Pratique l'écoute active",
+        "Pratique l’écoute de son entourage",
+        "S'assure que les intervenants sont au courant des points bloquants",
+        "Choisit les outils appropriés pour une communication précise et opportune",
+        "Communique efficacement avec les bons outils aux bons moments",
       ],
       "examples": [
-        "Received and integrated critical feedback positively",
-        "Created cross-team Slack channel for payments work",
-        "Spoke to domain experts before writing spec",
+        "A recu et intégré un feedback critique positivement",
+        "Est au courant de l’avancé du travail des intégrants de sa swarm",
+        "A validé avec les développeurs front concernés les retours de l’api", 
+        "A discuté avec les archi lors d’un engineering council avant la rédaction des spec techniques",
+        "Est concis lors des dailys",
+        "Privilégie le chat pour poser des questions non urgentes",
+        "Utilise une rétro pour remonter des soucis organisationnels",
       ],
     }, {
-      "summary": "Proactively shares information, actively solicits feedback, and facilitates communication for multiple stakeholders",
+      "summary": "Communique de manière proactive l'information, sollicite activement les feedback et facilite la communication pour de multiples parties prenantes",
       "signals": [
-        "Resolves communication difficulties between others",
-        "Anticipates and shares schedule deviations in plenty of time",
-        "Manages project stakeholder expectations effectively",
+        "Résout les difficultés de communication entre les autres",
+        "Va chercher de manière proactive l’information des parties prenantes",
+        "Gère efficacement les attentes des parties prenantes du projet",
+        "Communique de manière proactive les avancés du projet",
       ],
       "examples": [
-        "Directed team response effectively during outages",
-        "Gave a substantial Eng All Hands presentation on React",
-        "Gave notice of upcoming related work in Eng Briefing",
+        "A réglé des débuts de discussions tendus afin de privilégier une communication productive et constructive",
+        "A leadé une réunion entre 5 personnes et plus en s’assurant d’être efficace et répondre aux attentes de chacun",
+        "Sollicite les besoin des autres swarms et a informé une autre équipe un retard qui impacterait la roadmap de leur swarm",
+        "A organisé des points réguliers entre les développeurs concernés de plusieurs swarms pour assurer un alignement d’information",
+        "A échangé avec ibbü concernant les impacts du projet asynchrone en tenant compte des contraintes",
+        "A partagé les écarts de calendrier en avance",
       ],
     }, {
-      "summary": "Communicates complex ideas skillfully and with nuance, and establishes alignment within the wider organization",
+      "summary": "Communique des idées complexes habilement et avec nuance à des interlocuteurs variés",
       "signals": [
-        "Communicates project risk and tradeoffs skillfully and with nuance",
-        "Contextualizes and clarifies ambiguous direction and strategy for others",
-        "Negotiates resourcing compromises with other teams",
+        "Communique habilement et avec nuance les risques et les compromis du projet",
+        "Contextualise et clarifie la direction ambiguë et la stratégie pour les autres",
+        "Négocie des compromis de ressource avec d'autres équipes",
       ],
       "examples": [
-        "Lead off-site workshop on interviewing",
-        "Wrote Medium's growth framework and rationale",
-        "Aligned the entire organization around claps",
+        "Présente le projet afin qu’il soit compris par des profils non techniques ou par des personnes ne connaissant pas le projet",
+        "Présente un sujet complexe lors d’un engineering council en expliquant les limites et difficultés rencontrés",
+        "A impacté la roadmap produit en expliquant les besoins techniques afin de sortir un sujet prioritaire",
       ],
     }, {
-      "summary": "Influences outcomes at the highest level, moves beyond mere broadcasting, and sets best practices for others",
+      "summary": "Influence les résultats au plus haut niveau, dépasse la simple diffusion et établit les best practices pour les autres",
       "signals": [
-        "Defines processes for clear communication for the entire team",
-        "Shares the right amount of information with the right people, at the right time",
-        "Develops and delivers plans to execs, the board, and outside investors",
+        "Cherche à améliorer la communication entre les différents pôles de l’entreprise",
+        "Améliorer la communication et établit l’alignement au sein de l’entreprise",
+        "Influence les résultats au plus haut niveau",
       ],
       "examples": [
-        "Organized half year check-in company offsite",
-        "Created the communication plan for a large organizational change",
-        "Presented to the board about key company metrics and projects",
+        "Création du plan de communication pour un A préparer un kickoff pour présenter les différents sujets de la r&d en début d’année changement organisationnel",
+        "A créer un plan de communication pour un grand changement organisationnel",
+        "A impulsé un nouveau process à mettre en place au sein de la r&d afin d’améliorer l’organisation du pôle",
       ],
     }],
   },
@@ -495,66 +476,63 @@ export const tracks: Tracks = {
   "CRAFT": {
     "displayName": "Craft",
     "category": "B",
-    "description": "Embodies and promotes practices to ensure excellent quality products and services",
+    "description": "Incorpore et encourage les pratiques pour assurer une excellente qualité de produit et de service",
     "milestones": [{
-      "summary": "Delivers consistently good quality work",
+      "summary": "Offre un travail de qualité constante",
       "signals": [
-        "Tests new code thoroughly, both locally, and in production once shipped",
-        "Writes tests for every new feature and bug fix",
-        "Writes clear comments and documentation",
+        "Teste soigneusement le nouveau code, localement et en production une fois expédié",
+        "Écrit des tests pour les nouvelles fonctionnalités et correction de bug, maintient la couverture de code",
+        "Rédige des commentaires et de la documentation claires",
       ],
       "examples": [
-        "Caught a bug on Hatch before it went live",
-        "Landed non-trivial PR with no caretaker comments",
-        "Wrote hermetic tests for the happy and sad cases",
+        "A ajouté une section dans le readme d'ibbü-app pour expliquer comment gérer les traductions",
+        "A refusé et commenté la PR sur l'employment-livefeed-service qui permettait de moins couvrir le code par des tests",
+        "A proposé une PR qui n'a pas suscité de commentaires triviaux",
       ],
     }, {
-      "summary": "Increases the robustness and reliability of codebases, and devotes time to polishing products and systems",
+      "summary": "Augmente la robustesse et la fiabilité du code base, et consacre du temps pour améliorer produits et systèmes",
       "signals": [
-        "Refactors existing code to make it more testable",
-        "Adds tests for uncovered areas",
-        "Deletes unnecessary code and deprecates proactively when safe to do so",
+        "Refactorise le code existant pour le rendre plus testable",
+        "Ajoute des tests pour les zones non couvertes",
+        "Supprime le code inutile et déprécie de manière proactive lorsqu'il est sans danger de le faire",
+        "Teste les performances de son code sur des copies de données de production",
       ],
       "examples": [
-        "Requested tests for a PR when acting as reviewer",
-        "Reduced the number of zelda fitzgerald exceptions",
-        "Fixed a TODO for someone else in the codebase",
+        "A demandé des tests sur une PR en tant que reviewer",
+        "A mis en place le changelog generator sur le connectors-app",
+        "A conçu le système à état de l'employment-campaign-api-service",
       ],
     }, {
-      "summary": "Improves others' ability to deliver great quality work",
+      "summary": "Améliore la capacité des autres à fournir un travail de grande qualité",
       "signals": [
-        "Implements systems that enable better testing",
-        "Gives thoughtful code reviews as a domain expert",
-        "Adds tooling to improve code quality",
+        "Implémente des systèmes qui permettent de meilleurs tests",
+        "Donne des avis réfléchis sur le code en tant qu'expert",
+        "Ajoute des outils pour améliorer la qualité du code",
       ],
       "examples": [
-        "Improved PRB to run the same volume of tests faster",
-        "Simplified hermetic test data modification",
-        "Created fixture system for visual quality",
+        "A écrit le cahier de recette des apps mobiles",
+        "A développé le site http://internal-apis-doc.iadvize.net pour centraliser les documentations swagger de différents micro-services",
+        "A développé et poussé le service version-badge-api",
       ],
     }, {
-      "summary": "Advocates for and models great quality with proactive actions, and tackles difficult and subtle system issues",
+      "summary": "Promeut et modèle la qualité avec des actions proactives, et s'attaque aux problèmes de système difficiles, subtils et de performance",
       "signals": [
-        "Builds systems so as to eliminate entire classes of programmer error",
-        "Focuses the team on quality with regular reminders",
-        "Coordinates Watch priorities and projects",
+        "Pousse régulièrement des PR pour améliorer les performances de services stratégiques",
+        "Focalise l'équipe sur la qualité avec des rappels réguliers",
+        "Implémente des services hautement scalables / Propose les tests de simulation de scalabilité",
       ],
       "examples": [
-        "Added code coverage reporting to iOS CI pipeline",
-        "Iterated repeatedly to develop Medium's underlines solution",
-        "Defined and oversaw plan for closing Heartbleed vulnerability",
+        "A mis en place une plateforme pour faire des tests E2E et fait adopter cette plate-forme à toute la P&E",
+        "A démontré et mis en place grafana et a formé l'équipe à l'utiiser",
       ],
     }, {
-      "summary": "Enables and encourages the entire organization to make quality a central part of the development process",
+      "summary": "Permet et encourage l'ensemble de l'organisation à faire de la qualité un élément central du processus de développement",
       "signals": [
-        "Defines policies for the engineering org that encourage quality work",
-        "Identifies and eliminates single points of failure throughout the organization",
-        "Secures time and resources from execs to support great quality",
+        "Définit les politiques pour l'organisation d'ingénierie qui encouragent un travail de qualité",
+        "Identifie et élimine les spof à travers toute l'organisation",
       ],
       "examples": [
-        "Negotiated resources for Fix-It week with exec team",
-        "Instituted and ensured success of a 20% time policy",
-        "Started The Watch",
+        "A négocié avec les managers ou les VP pour mettre en place la winter force",
       ],
     }],
   },
@@ -562,133 +540,123 @@ export const tracks: Tracks = {
   "INITIATIVE": {
     "displayName": "Initiative",
     "category": "B",
-    "description": "Challenges the status quo and effects positive organizational change outside of mandated work",
+    "description": "Défie le statu quo et impulse un changement positif en dehors des missions confiées",
     "milestones": [{
-      "summary": "Identifies opportunities for organizational change or product improvements",
+      "summary": "Identifie les opportunités de changement organisationnel ou d'amélioration du produit",
       "signals": [
-        "Writes Hatch posts about improvement opportunities",
-        "Raises meaningful tensions in tactical meetings",
-        "Asks leadership team probing questions at FAM",
+        "Pointe du doigt un oubli ou une problématique qui n'a pas été identifiée",
+        "Suggère une approche ingénieuse  sur un projet",
+        "S'assure qu'un problème de prod est pris en charge",
       ],
       "examples": [
-        "Wrote about problems with TTR on Hatch",
-        "Wrote about content policy problems on Hatch",
-        "Reported a site issue in Github",
+        "A créé un ticket de refacto ou d'amélioration d'une feature",
+        "A trouvé un bug et crée un ticket en informant la swarm concernée",
+        "A signalé à son manager des choses étonnantes concernant iAdvize",
       ],
     }, {
-      "summary": "Causes change to positively impact a few individuals or minor improvement to an existing product or service",
+      "summary": "Apporte des améliorations mineures au produit ou au mode d’organisation d’une swarm ",
       "signals": [
-        "Picks bugs off the backlog proactively when blocked elsewhere",
-        "Makes design quality improvements unprompted",
-        "Takes on trust and safety tasks proactively when blocked elsewhere",
+        "Prend un bug du backlog  de manière proactive",
+        "Apporte des améliorations de la qualité du design spontanément",
       ],
       "examples": [
-        "Advocated on own behalf for a change in role",
-        "Implemented flow typing for promises",
-        "Audited web client performance in Chrome and proposed fixes",
+        "A changé le model de donnée d'un table MySQL pour améliorer les performances globales",
+        "A poussé une interface responsive pour les experts ibbü",
+        "A fait et publié un hotfix en dehors des travaux habituels",
       ],
     }, {
-      "summary": "Causes change to positively impact an entire team or instigates a minor feature or service",
+      "summary": "Faire en sorte que les changements entraînent un impact positif sur toute une équipe, une fonctionnalité ou un service mineur",
       "signals": [
-        "Demonstrates concepts proactively with prototypes",
-        "Fixes complicated bugs outside of regular domain",
-        "Takes ownership of systems that nobody owns or wants",
+        "Démontre des concepts de manière proactive avec des prototypes",
+        "Corrige les bug compliqués en dehors du domaine normal",
+        "Prend possession des problématiques que personne ne possède ou ne veut",
+        "Prend en charge des taches lorsqu'elle sont bloquantes pour les autres",
       ],
       "examples": [
-        "Defined style guide to resolve style arguments",
-        "Proposed and implemented at-mentions prototype",
-        "Implemented video for Android independently, unprompted",
+        "A définie des style guide pour résoudre des débats",
+        "A pris possesion du sujet launch darkly et l'a intégré dans le workflow de dev",
+        "A rédigé et conduit la RFC sur les API REST pour combler un manque",
       ],
     }, {
-      "summary": "Effects change that has a substantial positive impact on the engineering organization or a major product impact",
+      "summary": "Effectue des changements qui ont un impact positif sur l'organisation d'ingénierie ou un impact majeur sur le produit",
       "signals": [
-        "Champions and pioneers new technologies to solve new classes of problem",
-        "Exemplifies grit and determination in the face of persistent obstacles",
-        "Instigates major new features, services, or architectures",
+        "Défends et promeut des nouvelles technologies pour résoudre des nouveaux types de problèmes",
+        "Exprime du courage et de la détermination face aux obstacles persistants",
+        "Suscite de nouvelles fonctionnalités, services et architectures majeurs",
       ],
       "examples": [
-        "Created the interviewing rubric and booklet",
-        "Implemented and secured support for native login",
-        "Migrated medium2 to mono repo and bazel",
+        "A fait des choix empiriques pour passer de la stack front legacy à react", 
+        "A pris en charge la transition vers AWS",
+        "A améliorer le workflow de release en mettant en place un système de changelog et de release",
+        "A mis en place et organise le comptoir agile",
       ],
     }, {
-      "summary": "Effects change that has a substantial positive impact on the whole company",
+      "summary": "Effectuer un changement qui a un impact positif substantiel sur la société",
       "signals": [
-        "Creates a new function to solve systemic issues",
-        "Galvanizes the entire company and garners buy in for a new strategy",
-        "Changes complex organizational processes",
+        "Modifie les processus organisationnels complexes",
+        "Propose la création d'un nouveau job pour résoudre des problèmes organisationnels",
+        "Propose un nouveau process pour améliorer la priorisation et planification des bugs avec les Customer Angels",
       ],
       "examples": [
-        "Migrated the organization from Holacracy",
-        "Built Medium Android prototype and convinced execs to fund it",
-        "Convinced leadership and engineering org to move to Medium Lite architecture",
+        "A mis en place l'organisation en swarm",
       ],
     }],
   },
 
   "CAREER_DEVELOPMENT": {
-    "displayName": "Career development",
+    "displayName": "Développement de carrière",
     "category": "C",
-    "description": "Provides strategic support to engineers to help them build the career they want",
+    "description": "Fournit un soutien stratégique aux ingénieurs pour les aider à bâtir la carrière qu'ils souhaitent",
     "milestones": [{
-      "summary": "Gives insight into opportunities and helps identify individuals' strengths and weaknesses",
+      "summary": "Donne un aperçu des opportunités et aide à identifier les forces et les faiblesses des individus.",
       "signals": [
-        "Advocates on behalf and in defense of a group member",
-        "Shares opportunities for improvements and recognises achievements",
-        "Explains appropriate available industry paths",
+        "Plaide et défends à la place d'un membre d'un groupe",
+        "Partage les possibilités d'amélioration, sait reconnaître les réalisations et les performances",
+        "Explique les évolutions possibles",
       ],
       "examples": [
-        "Collected and delivered feedback",
-        "Discussed career options and areas of interest informally",
-        "Hosted a Floodgate Academy intern",
+        "A receuilli et restitué des feedback depuis le formulaire de peer",
+        "A discuté des options de carrières et domaines d'intérêt de façon informelle",
       ],
     }, {
-      "summary": "Formally supports and advocates for one person and provides tools to help them solve career problems",
+      "summary": "Appuie et défend formellement une personne et fournit des outils pour l'aider à résoudre des problèmes de carrière",
       "signals": [
-        "Ensure a group member has an appropriate role on their team",
-        "Offers effective career advice to group members, without being prescriptive",
-        "Creates space for people to talk through challenges",
+        "S'assurer qu'un membre du groupe a un rôle approprié au sein de son équipe",
+        "Offre des conseils de carrière efficaces aux membres du groupe, sans être prescriptif",
+        "Crée de l'espace pour que les gens puissent parler des défis à relever",
       ],
       "examples": [
-        "Set up and attended regular, constructive 1:1s",
-        "Provided coaching on how to have difficult conversations",
-        "Taught group members the GROW model",
+        "Mise en place, participation régulière et constructive de 1:1", 
+        "Accompagne sur la façon d'avoir des conversations difficiles",
       ],
     }, {
-      "summary": "Inspires and retains a small group of people and actively pushes them to stretch themselves",
+      "summary": "Inspire un petit groupe de personnes et les pousse activement à s'améliorer",
       "signals": [
-        "Discusses paths, and creates plans for personal and professional growth",
-        "Advocates to align people with appropriate roles within organization",
-        "Works with team leads to elevate emerging leaders",
+        "Etudie des chemins possibles et crée des plans de croissance personnel et professionnel",
+        "Recommande d'aligner les personnes avec les rôles appropriés au sein de l'organisation",
+        "Travaille avec les équipes pour élever le niveau des leaders émergents",
       ],
       "examples": [
-        "Reviewed individual group member progression every 6 weeks",
-        "Suggested appropriate group member for Tech Lead position",
-        "Arranged a requested switch of discipline for a group member",
+        "Passe en revue la progression individuelle des membres du groupe toutes les 6 semaines",
+        "Suggestion d'un membre approprié pour le poste de d'architecte",
       ],
     }, {
-      "summary": "Manages interactions and processes between groups, promoting best practices and setting a positive example",
+      "summary": "Gérer les interactions et les processus entre les équipes, promouvoir les meilleures pratiques et donner l'exemple",
       "signals": [
-        "Manages team transitions smoothly, respecting team and individual needs",
-        "Develops best practices for conflict resolution",
-        "Ensures all group members' roles are meeting their career needs",
+        "Gérer les transitions d'équipe en douceur, en respectant l'équipe et les besoins individuels",
+        "Élabore des best practices pour la résolution des conflits",
+        "S'assure que les rôles des personnes répondent à leurs besoins de carrière",
       ],
-      "examples": [
-        "Completed training on situational leadership",
-        "Built a resourcing plan based on company, team, and individual goals",
-        "Prevented regretted attrition with intentional, targeted intervention",
-      ],
+      "examples": [],
     }, {
-      "summary": "Supports the development of a signficant part of the engineering org, and widely viewed as a trusted advisor",
+      "summary": "Soutient le développement d'une partie importante des membres d'ingénierie et est largement considéré comme un conseiller de confiance",
       "signals": [
-        "Supports and develops senior leaders",
-        "Identified leadership training opportunities for senior leadership",
-        "Pushes everyone to be as good as they can be, with empathy",
+        "Soutenir et former les cadres",
+        "Identifier des possibilités de formation en leadership pour les cadres",
+        "Pousse tout le monde à être aussi bon qu'il peut l'être, avec empathie",
       ],
       "examples": [
-        "Provided coaching to group leads",
-        "Devised Pathwise curriculum for group leads",
-        "Advocated to execs for engineer development resources and programs",
+        "Accompagnement des leads d'équipe",
       ],
     }],
   },
@@ -696,97 +664,84 @@ export const tracks: Tracks = {
   "ORG_DESIGN": {
     "displayName": "Org design",
     "category": "C",
-    "description": "Defines processes and structures that enables the strong growth and execution of a diverse eng organization",
+    "description": "Définit les processus et les structures qui permettent une forte croissance et la bonne exécution d'une organisation diversifiée",
     "milestones": [{
-      "summary": "Respects and participates in processes, giving meaningful feedback to help the organization improve",
+      "summary": "Respecte et participe aux processus, en donnant des feedbacks significatifs pour aider l'organisation à s'améliorer",
       "signals": [
-        "Reflects on meetings that leave them inspired or frustrated",
-        "Teaches others about existing processes",
-        "Actively participates and makes contributions within organizational processes",
+        "Prend le temps de réfléchir sur les réunions qui les inspirent ou les frustrent",
+        "Enseigne aux autres les processus existants",
+        "Participe activement aux processus organisationnels et y apporte des contributions",
       ],
       "examples": [
-        "Facilitated effective tactical meeting with empathy",
-        "Explained tactical meeting format to a new hire",
-        "Provided feedback on sprint planning meeting",
+        "A facilité une réunion efficace avec empathie",
+        "Fournit un feedback d'améliortation sur des events scrum",
+        "Pousse l'équipe à réfléchir en rétrospective sur l'organisation actuelle et comment être plus efficace",
       ],
     }, {
-      "summary": "Identifies opportunities to improve existing processes and makes changes that positively affect the local team",
+      "summary": "Identifie les occasions d'améliorer les processus existants et apporte des changements qui ont une incidence positive sur l'équipe",
       "signals": [
-        "Defines meeting structure and cadence that meets team needs",
-        "Engages in organizational systems thinking",
-        "Advocates for improved diversity and inclusion, and proposes ideas to help",
+        "Définit la structure et la cadence des réunions qui répondent aux besoins de l'équipe",
+        "S'engage dans la réflexion sur les systèmes organisationnels",
+        "Plaide en faveur de l'amélioration de la diversité et de l'inclusion, et propose des idées pour aider à y arriver",
       ],
-      "examples": [
-        "Defined Frankenmeeting structure for small team",
-        "Improved Watch on-call rotation scheduling",
-        "Defined standard channels for inter-team communication",
-      ],
+      "examples": [],
     }, {
-      "summary": "Develops processes to solve ongoing organizational problems",
+      "summary": "Élaborer des processus et des programmes pour résoudre des problèmes organisationnels",
       "signals": [
-        "Creates programs that meaningfully improve organizational diversity",
-        "Solves long-standing organizational problems",
-        "Reallocates resources to meet organizational needs",
+        "Résout des problèmes organisationnels de longue date",
+        "Réaffecte les ressources pour répondre aux besoins organisationnels",
       ],
       "examples": [
         "Developed baseline team templates for consistency",
-        "Created bug-rotation program to address ongoing quality issues",
-        "Defined Guilds manifesto and charter",
       ],
     }, {
-      "summary": "Thinks deeply about organizational issues and identifies hidden dynamics that contribute to them",
+      "summary": "Réfléchit profondément aux problèmes organisationnels et identifie les dynamiques cachées qui y contribuent",
       "signals": [
-        "Evaluates incentive structures and their effect on execution",
-        "Analyzes existing processes for bias and shortfall",
-        "Ties abstract concerns to concrete organizational actions or norms",
+        "Évalue les structures d'encouragement / récompense et leur effet sur l'exécution",
+        "Analyser les processus existants pour déceler les biais et les lacunes",
+        "Relie des problèmes abstraits aux actions ou normes organisationnelles concrètes",
       ],
-      "examples": [
-        "Connected mobile recruiting difficulties to focus on excellence",
-        "Raised leadership level change discrepancies",
-        "Analyzed the hiring rubric for false negative potential",
-      ],
+      "examples": [],
     }, {
-      "summary": "Leads initiatives to address issues stemming from hidden dynamics and company norms",
+      "summary": "Dirige des initiatives pour résoudre des problèmes découlant de dynamiques cachées et de normes d'entreprise",
       "signals": [
-        "Builds programs to train leadership in desired skills",
-        "Creates new structures that provide unique growth opportunities",
-        "Leads planning and communication for reorgs",
+        "Construit des programmes pour améliorer le leadership dans des compétences clés",
+        "Crée de nouvelles structures qui offrent des possibilités de croissance uniques",
+        "Dirige la planification et la communication pour les réformes d'organistion",
       ],
       "examples": [
         "Lead efforts to increase number of mobile engineers",
-        "Directed resources to meaningfully improve diversity at all levels",
-        "Built the growth framework rubric",
+        "Direction de projet pour l'amélioration significative de la diversité à tous les niveaux",
+        "A penser et construit le growth framework",
       ],
     }],
   },
 
   "WELLBEING": {
-    "displayName": "Wellbeing",
+    "displayName": "Bien-être",
     "category": "C",
-    "description": "Supports the emotional well-being of group members in difficult times, and celebrates their successes",
+    "description": "Soutient le bien-être émotionnel des membres de l'équipe dans les moments difficiles et célèbre leurs succès",
     "milestones": [{
-      "summary": "Uses tools and processes to help ensure colleagues are healthy and happy",
+      "summary": "Utilise des outils et des processus pour s'assurer que les collègues sont en bonne santé et heureux",
       "signals": [
-        "Keeps confidences unless legally or morally obliged to do otherwise",
-        "Applies the reasonable person principle to others",
-        "Avoids blame and focuses on positive change",
+        "Conserve la confidentialité, sauf obligation légale ou morale de faire autrement",
+        "Évite de critiquer et met l'accent sur le changement positif",
+        "Applique le 'Reasonable Person Principle' aux autres",
       ],
       "examples": [
-        "Ensured group members were taking enough vacation",
-        "Put themself in another's shoes to understand their perspective",
-        "Checked in with colleague showing signs of burnout",
+        "A demandé à un collègue de se déconnecter de Chat pendant ses vacances",
+        "S'est mis à la place de l'autre pour comprendre son point de vue",
+        "S'est soucié d'un collègue montrant des signes d'épuisement", 
       ],
     }, {
-      "summary": "Creates a positive, supportive, engaging team environment for group members",
+      "summary": "Crée un environnement d'équipe positif, encourageant et engageant pour tout le monde",
       "signals": [
-        "Sheds light on other experiences to build empathy and compassion",
-        "Validates ongoing work and sustains motivation",
-        "Proposes solutions when teams get bogged down or lose momentum",
+        "Valide le travail en cours et soutient la motivation",
+        "Propose des solutions lorsque les équipes s'enlisent ou perdent leur élan",
       ],
       "examples": [
-        "Coordinated a small celebration for a project launch",
-        "Connected tedious A|B testing project with overall company goals",
-        "Noted a team without a recent win and suggested some easy quick wins",
+        "A coordonné une petite fête pour le lancement d'un projet",
+        "A remarqué une équipe sans victoire récente et a suggéré des quick win",
       ],
     }, {
       "summary": "Manages expectations across peers, leads in the org, promotes calm, and prevents consensus building",
@@ -796,9 +751,9 @@ export const tracks: Tracks = {
         "Helps group members approach problems with curiosity",
       ],
       "examples": [
-        "Completed training on transference and counter transference",
-        "Completed training on compromise and negotiation techniques",
-        "Reframed a problem as a challenge, instead of a barrier, when appropriate",
+        "A suivi une formation sur l'assertivité",
+        "A suivi une formation sur les techniques de compromis et de négociation",
+        "A reformulé un problème comme un défi, au lieu d'un obstacle, le cas échéant",
       ],
     }, {
       "summary": "Advocates for the needs of teams and group members, and proactively works to calm the organization",
@@ -828,30 +783,28 @@ export const tracks: Tracks = {
   },
 
   "ACCOMPLISHMENT": {
-    "displayName": "Accomplishment",
+    "displayName": "Accomplissement",
     "category": "C",
-    "description": "Inspires day to day excellence, maximises potential and effectively resolves performance issues with compassion",
+    "description": "Inspire l'excellence quotidienne, maximise le potentiel et résoud les problèmes de performance efficacement avec compassion",
     "milestones": [{
-      "summary": "Helps individuals identify blockers and helps them identify next steps for resolution",
+      "summary": "Aide les individus à identifier les points bloquant et les aide à identifier les étapes suivante pour trouver une solution",
       "signals": [
-        "Notices when someone is stuck and reaches out",
-        "Helps others break down problems into feasible, tangible next steps",
-        "Talks through problems non-judgmentally",
+        "Remarque quand quelqu'un est coincé et propose son aide",
+        "Aide les autres à découper les probèmes en étapes faisable et tangible",
+        "Parle de problèmes sans porter de jugement",
       ],
       "examples": [
-        "Completed training on diagnosing problems",
-        "Unblocked a group member",
-        "Reinforces and affirms positive feedback for good work",
+        "A débloqué un membre du groupe",
+        "Renforce et affirme un feedback positif pour un bon travail",
       ],
     }, {
-      "summary": "Helps individuals resolve difficult performance issues, with insight, compassion, and skill",
+      "summary": "Aide les individus à résoudre des problèmes de performance difficile avec perspicacité, compassion et compétence",
       "signals": [
         "Gathers context outside the immediate problem",
         "Recognizes issues within local environment and suggests change",
         "Works to encourage ownership of actions and responsibilities",
       ],
       "examples": [
-        "Completed training on decision making",
         "Convinced a group member to solve a problem directly, rather than doing it for them",
         "Gave honest feedback about poor performance, with compassion",
       ],
@@ -897,280 +850,270 @@ export const tracks: Tracks = {
   "MENTORSHIP": {
     "displayName": "Mentorship",
     "category": "D",
-    "description": "Provides support to colleagues, spreads knowledge, and develops the team outside formal reporting structures",
+    "description": "Fournit un soutien aux collègues, diffuse des connaissances et fait monter en compétences l'équipe",
     "milestones": [{
-      "summary": "Informally mentors individuals in an ad-hoc way, supports new hires, and conveys institutional knowledge",
+      "summary": "Mentore les individus de façon ad-hoc, soutient les nouveaux employés et transmet les connaissances institutionnelles",
       "signals": [
-        "Makes themself available for informal support and advice",
-        "Acts as sounding board for peers and more junior members",
-        "Provides sound advice when asked",
+        "Se rend disponible pour un soutien et des conseils informels quand sollicité",
+        "Fournit des conseils judicieux lorsque demandé",
+        "Pousse un membre de son équipe à partager son avis",
       ],
       "examples": [
-        "Acted as an onboarding buddy",
-        "Paired with an engineer to help them with an unfamiliar area",
-        "Helped a colleague understand their feelings",
+        "A présenté à un nouvel arrivant notre organisation P&E ou l'architecture d'un domaine",
+        "A expliqué comment fonctionne le stats-indexer-app et comment désactiver l'indexation d'un indicateur",
+        "A expliqué le fonctionnement des notifications push pour aider à résoudre un bug",
       ],
     }, {
-      "summary": "Mentors people proactively, and guides people to realizations rather than providing the answer",
+      "summary": "Mentore les gens de façon proactive, et guide les gens vers des réalisations plutôt que de fournir la réponse",
       "signals": [
-        "Takes time to explain concepts and best practices",
-        "Asks questions to illuminate concepts, rather than stating them",
-        "Allows others to lead efforts when it will help their development",
+        "Intervient auprès d'un autre développeur pour lui expliquer les concepts et les best practices",
+        "Pose des questions pour éclairer les concepts, plutôt que de les énoncer",
+        "Laisse les autres leader quand cela aidera leur développement",
       ],
       "examples": [
-        "Shared interesting article with a team member to help with their growth",
-        "Offered unprompted feedback to help growth, with empathy",
-        "Lead from behind to support someone new to a leadership role",
+        "A proposé une session de pair-programming à un.e collègue pour implémenter les push notifications",
+        "A apporté une aide non sollicitée pour aider à progresser avec empatie",
+        "A donné des conseils à un.e collègue pour animer une rétrospective",
       ],
     }, {
-      "summary": "Teaches small groups of engineers and contributes to Medium's shared knowledge base",
+      "summary": "Enseigne à des petits groupes d'ingénieurs et s'assure de l'appropriation des concepts enseignés",
       "signals": [
-        "Avoids siloing information when it can be usefully shared with others",
-        "Works to increase the bus factor of systems",
-        "Finds tools that work best for a team member's personality",
+        "Évite de faire des silos d'information quand il peut être utilement partagé avec d'autres (bus factor)",
+        "Identifie la ou les personnes suseptibles d'intégrer un concept présenté et s'assure de la bonne implémentation",
+        "Consacre du temps à mettre à niveau toute une équipe par des présentations et des workshops réguliers",
       ],
       "examples": [
-        "Gave a brown bag presentation on payments",
-        "Wrote Hatch post on avoiding RDS backfill issues",
-        "Wrote Medium-U content module",
+        "A mené une présentation du fonctionnement d'un composant du produit (les stats, le paiement ibbü, le workflow conversationnel) dans le but de résoudre un problème ou faire avancer un projet",
+        "A présenté le concept Type Safety, défendu le besoin de l'intégrer à nos pratiques, et effectué des code reviews auprès des équipes l'ayant implémenté",
+        "A contribué avec les membres de l'équipe Value à implémenter la nouvelle Supervision en s'assurant de la bonne utilisation de Kafka et Avro",
       ],
     }, {
-      "summary": "Encourages people to mentor each other, and creates ways for them to do so",
+      "summary": "Encourage les gens à se guider les uns les autres, et crée des moyens pour qu'ils le fassent",
       "signals": [
-        "Defines an entire curriculum for a discipline",
-        "Draws positive attention to well-modeled mentor and teaching behaviours",
-        "Creates brown bag series and lines up speakers",
+        "Formalise et enseigne les bonnes pratiques de mentoring",
+        "Accompagne un collègue pour qu'il présente son travail et enseigne aux autres",
+        "Crée des espaces pour que les gens s'entraident",
       ],
       "examples": [
-        "Created and lead Medium's Women in Eng group",
-        "Organized an Eng All Hands with an outside speaker",
-        "Designed and taught web client guild curriculum",
+        "A enseigné à un.e collègue comment enseigner git",
+        "A démocratisé le mob programming et a proposé un cadre pour le pratiquer efficacement",
       ],
     }, {
-      "summary": "Instills and promotes a culture of learning and development within the team",
+      "summary": "Insuffle et promeut une culture d'apprentissage et de développement au sein de toute l'équipe d'ingénierie",
       "signals": [
-        "Sets incentive structures to recognise and reward mentorship",
-        "Empowers team members to develop themselves",
-        "Role models productive and healthy mentor relationships",
+        "Établit des structures incitatives pour reconnaître et récompenser le mentorat",
+        "Permet/incite les membres de l'équipe à se développer",
       ],
       "examples": [
-        "Instituted the professional education budget for engineers",
-        "Mentored mentors",
-        "Started the eng advisor program and lined up external mentors",
+        "A responsabilisé les bonnes personnes en mastering des guildes et s'est assuré de leur succès",
       ],
     }],
   },
 
-  "EVANGELISM": {
-    "displayName": "Evangelism",
+  "EVANGELISME": {
+    "displayName": "Evangélisme",
     "category": "D",
-    "description": "Promotes Medium to the outside world and establishes it as an attractive and thoughtful place to work",
+    "description": "Promeut iAdvize vers le monde extérieur et l'établit comme un lieu de travail attrayant",
     "milestones": [{
-      "summary": "Represents Medium well externally, and influences individuals positively",
+      "summary": "Représente bien iAdvize extérieurement et influence positivement les individus",
       "signals": [
-        "Shares personal and organizational successes with their network",
-        "Attends Medium-hosted events and talks with guests",
-        "Communicates genuine and honest excitement about their work externally",
+        "Partage les succès personnels et organisationnels avec leur réseau",
+        "Participe à des événements hébergés par iAdvize et discute avec les invités",
+        "Communique une excitation authentique et honnête à propos de leur travail à l'extérieur",
       ],
       "examples": [
-        "Shared a Medium product launch post on Facebook",
-        "Acted as a guide for a non-friend visitor to the office",
-        "Supported PR efforts by giving a quote or having a photo taken",
+        "A agi comme guide pour un visiteur non-ami au bureau",
+        "A présenté son rôle et son poste à des visiteurs",
+        "A porté des vêtements au couleur d'iAdvize en dehors du cadre du travail",
       ],
     }, {
-      "summary": "Participates more centrally in small events, and takes simple actions that positively influence groups of people",
+      "summary": "Participe à de petits événements et prend des mesures simples qui influencent positivement des groupes de personnes",
       "signals": [
-        "Takes meaningful action to introduce people to Medium",
-        "Joined public Slack group and represented Medium appropriately, and well",
-        "Organizes positive small- or medium-sized events that bring people to Medium",
+        "Prend des mesures significatives pour présenter les gens à iAdvize",
+        "Organise des événements positifs de petite ou moyenne envergure qui amènent les gens à iAdvize",
       ],
       "examples": [
-        "Volunteered as a helper for CODE2040 writing workshop",
-        "Organized a short tour of the office by college students",
-        "Talked at a Women Who Code event hosted at Medium",
+        "S'est porté volontaire comme aide aux évènements 'Conversation'",
+        "A organisé un petit tour des locaux à un groupe d'élèves",
+        "A représenté iAdvize de façon approprié auprès des intégrateurs ou clients via téléphone ou Slack",
       ],
     }, {
-      "summary": "Works hard to positively influence large groups of people on their views of Medium",
+      "summary": "S’investi pour influencer positivement de grands groupes de personnes sur leurs vision de iAdvize",
       "signals": [
-        "Mentors or participates in a high visibility way in an external organization",
-        "Builds fruitful partnerships with external organizations",
-        "Writes blog posts about Medium that receive moderate traffic",
+        "Mentors ou participe de manière très visible à une organisation externe",
+        "Construit des partenariats fructueux avec des organisations externes",
+        "Écrit des articles de blog à propos de iAdvize qui génèrent un trafic modéré",
       ],
       "examples": [
-        "Represented Medium on a panel at a conference of industry experts",
-        "Established close ties with Creative Commons",
-        "Built a durable, long-standing relationship with Code2040",
+        "A Représenté iAdvize lors d'une conférence d'experts de l'industrie",
+        "A participé activement à un programme Genius Care",
       ],
     }, {
-      "summary": "Establishes Medium as an great, innovative company and workplace to the whole industry",
+      "summary": "Établit iAdvize comme une grande entreprise innovante et lieu de travail pour l'ensemble de l'industrie",
       "signals": [
-        "Establishes themself as an industry thought leader who attracts talent",
-        "Publishes material about Medium's organizational or technical innovations",
-        "Leverages significant following to evangelise Medium",
+        "S'établit comme un leader d'opinion de l'industrie qui attire les talents",
+        "Publie du matériel sur les innovations organisationnelles ou techniques de iAdvize",
+        "Utilise un nombre significative de followers pour évangéliser iAdvize",
       ],
       "examples": [
-        "Published a paper on Medium technology in a peer-reviewed journal",
-        "Authored joint-press release with EFF on DNT",
-        "Published “Why Content Editable Is Terrible” on the Medium engineering blog",
+        "Publication d'un article sur la technologie iAdvize dans une revue",
       ],
     }, {
-      "summary": "Introduces Medium in a positive light to a wider audience outside the industry",
+      "summary": "Introduit iAdvize sous un jour positif pour un public plus large en dehors de l'industrie",
       "signals": [
-        "Delivers key messages to broad, mainstream audiences",
-        "Influences people with large audiences to talk about Medium positively",
-        "Drives recognition and adoption of Medium in significant numbers",
+        "Fournit des messages clés à un large public",
+        "Influence les personnes ayant un large public pour parler positivement de iAdvize",
+        "Favorise la reconnaissance et l'adoption de iAdvize en nombre significatif",
       ],
       "examples": [
-        "Published or interviewed in a mainstream newspaper or website outside tech",
-        "Keynoted a conference with international attention",
-        "Represented Medium in national televised media",
+        "Publié ou interviewé dans un journal grand public ou un site Web hors technologie",
+        "Présenter une keynote à une conférence avec une attention internationale",
+        "Représenté iAdvize dans les médias télévisés nationaux",
       ],
     }],
   },
 
-  "RECRUITING": {
-    "displayName": "Recruiting",
+  "RECRUTEMENT": {
+    "displayName": "Recrutement",
     "category": "D",
-    "description": "Strengthens Medium's team by bringing in excellent staff members",
+    "description": "Renforce l'équipe en amenant d'excellents membres",
     "milestones": [{
-      "summary": "Brings new candidates into the pipeline and understands how to evaluate candidates at Medium",
+      "summary": "Filtre les nouveaux candidats dans le pipeline et comprend comment évaluer les candidats",
       "signals": [
-        "Reviews existing network for hiring leads regularly",
-        "Shadows interviews to gain familiarity with process",
-        "Reviews current job postings regularly",
+        "Possède un compte Smartrecruiters et est familier avec l'outil",
+        "Examine régulièrement les offres d'emploi actuelles",
+        "Examine le pipe existant pour review les candidats",
       ],
       "examples": [
-        "Completed interview calibration",
-        "Set up casual sessions to practice asking questions",
-        "Referred appropriate individuals for open positions",
+        "A rejoins la 'room' sur le chat d'hangout : 'Tech recruitment'",
+        "A proposer des candidats qualifiés pour des postes ouverts",
       ],
     }, {
-      "summary": "Interviews regularly, helps the team make meaningful hiring decisions, and helps build a diverse pipeline",
+      "summary": "Participe à des entretiens régulierement et aide l'équipe à prendre des décisions d'embauche",
       "signals": [
-        "Uses interview rubric to provide clear, objective feedback on candidates",
-        "Interviews candidates with empathy and treats them all with equal respect",
-        "Researches approaches for sourcing candidates and diversifying hiring",
+        "Utilise la rubrique de review pour fournir un feedback claire et objectif sur les candidats après entretien",
+        "Participe sans leader à des Interviews de candidats avec empathie et les traite tous avec le même respect",
+        "A été briefé et/ou formé pour participer à des entretiens techniques",
       ],
       "examples": [
-        "Added observable evidence for every rating",
-        "Started a monthly brunch for candidates to meet Medium employees",
-        "Tested a new service for quality and diversity of candidates",
+        "A publié des reviews construites et argumenté dans Smart recruiter",
+        "A fait des reviews de tests techniques",
+        "A participé à des entretiens techniques",
       ],
     }, {
-      "summary": "Maintains and strengthens the integrity of the current process, and regularly brings in great candidates",
+      "summary": "Maintient et renforce le processus actuel, et valide régulièrement de bons candidats",
       "signals": [
-        "Teaches new interviewers how to interview with empathy",
-        "Models great interview technique and feedback when shadowed",
-        "Reverse shadows trainees and helps calibrate their feedback",
+        "Dirige les entretiens techniques",
+        "Enseigne aux nouveaux intervieweurs comment interviewer avec empathie",
+        "Participe à la rédaction des offres",
       ],
       "examples": [
-        "Wrote new interview question which meets our question quality criteria",
-        "Brought candidates into our pipeline proactively, with a high conversion rate",
-        "Proposed useful, tangible improvements to the interview process",
+        "A rédigé des nouvelles questions d'entrevue répondant à nos critères de qualité",
+        "A proposé des améliorations utiles et tangibles au processus de tests techniques",
+        "A leader la création des tests techniques scala ou front",
       ],
     }, {
-      "summary": "Actively contributes to and leads hiring decisions, and goes to great lengths to source great candidates",
+      "summary": "Contribue activement à la prise de décisions en matière d'embauche, et est en mesure de détecter les excellents candidats",
       "signals": [
-        "Documents subtle cues in interviews that indicate values alignment",
-        "Makes hiring decisions, resolving discrepancies between conflicting reports",
-        "Top-grades candidates and teases out character traits",
+        "Fait de la veille et/ou étudie les pratiques des autres sociétés",
+        "Prends des décisions d'embauche, résouds les divergences entre les feedbacks contradictoires",
+        "Comprend et mesure les problématiques liés à la diversification des profiles et des niveaux de salaires",
       ],
       "examples": [
-        "Planned engineering summit on interview process and training",
-        "Organized and lead Medium's presence at a recruitment fair",
-        "Started CODE2040 internship program",
+        "A conduit des entretiens finaux axés sur le fit et la personalité des candidats",
+        "A rédigé des feedbacks constructif et ettayés suite à des entretiens axès sur le fit et la personalité",
+        "A contribué à une décision argumenté en prenant en compte tous les paramètres , salaire , fit , besoin vs compétences",
       ],
     }, {
-      "summary": "Sets recruitment strategy, invests in long-term relationships for critical roles, and recruits at scale",
+      "summary": "Définit une stratégie de recrutement et investit dans des relations à long terme pour des rôles critiques",
       "signals": [
-        "Sets the tone, policy and goals around building a diverse, high-quality team",
-        "Identifies and brings in promising acquisitions",
-        "Tracks industry activity, identifying opportunities for critical roles",
+        "Définit le ton et la politique de la constitution d'une équipe diversifiée et de haute qualité",
+        "Dresse des profils de candidats en utilisant le growth framework",
+        "Développe et entretien un reseau de futur candidats pour des postes de haut niveau",
       ],
       "examples": [
-        "Talked with a senior candidate over many months to fill a critical role",
-        "Organized efforts around convincing acquired engineers to join and stay",
-        "Set goals, then tracked and reported metrics on team demographics over time",
+        "A défini une stratégie en matière de proposition de salaires",
       ],
     }],
   },
 
-  "COMMUNITY": {
-    "displayName": "Community",
+  "CULTURE": {
+    "displayName": "Culture",
     "category": "D",
-    "description": "Builds community internally, gives of themself to the team, and champions and extols company values",
+    "description": "Développe le sentiment de communauté en interne et se donne à l'équipe",
     "milestones": [{
-      "summary": "Is available and present on current teams, and works to contribute positively to company culture",
+      "summary": "Est disponible, présent et s'efforce de contribuer positivement à l'esprit d'équipe",
       "signals": [
-        "Participates in team activities and offsites",
-        "Treats colleagues and clients with respect",
-        "Joins groups or committees outside regular duties",
+        "Participe de manière active et constructif aux réunions d'équipe",
+        "Applique le 'Reasonable Person Principle' aux autres",
+        "Se joint à des groupes ou à des comités en dehors des tâches régulières.",
       ],
       "examples": [
-        "Joined and actively participated in the web client guild",
-        "Brought a small gift back from vacation for the team",
-        "Wrote entertaining and informative Prod Ops writeups on Hatch",
+        "Est présent et attentif pendant les démos internes",
+        "Est parti du principe que l'autre personne est raisonable lors d'un désaccord",
+        "A évité de couper la parole et est resté à l'écoute lors d'un débat",
       ],
     }, {
-      "summary": "Steps up, builds connectedness, and takes concrete actions to promote an inclusive culture",
+      "summary": "Construit et renforce les liens et prend des mesures concrètes pour promouvoir une culture inclusive au sein de la swarm",
       "signals": [
-        "Makes space for others to participate",
-        "Collaborates with other engineers outside direct responsibilities",
-        "Finds ways to ramp up and engage new hires quickly",
+        "Cultive un espace inclusive",
+        "Cultive l’esprit d’équipe",
+        "Cultive un espace de confiance",
       ],
       "examples": [
-        "Created onboarding bingo",
-        "Brought shy and introverted people into a dominant conversation",
-        "Volunteered as secretary for a team",
+        "A expliqué la difficulté d’un ticket back à un junior afin qu’il puisse donné son avis",
+        "A demandé l’avis d’un collègue introverti en rétro de sprint pour développer une ambiance de confiance pendant les réunion d’équipe",
+        "A fait du peer programming",
+        "A organisé un escape game en équipe",
+        "A poussé ses collègues pour travailler ensemble sur le même projet au lieu de chacun dans son coin",
+        "Propose et pousse régulièrement des projets collaboratifs Cagnotte",
+        "Est intervenu lors d’une discussion tendu afin d’aider les deux parties à arriver à un consensus",
       ],
     }, {
-      "summary": "Contributes to improving team relatedness, and helps build a culture of lending support",
+      "summary": "Aide à bâtir une culture d'entraide et donne l'exemple du dévouement",
       "signals": [
-        "Takes on additional Watch shifts at short notice",
-        "Pitches in to help other teams hit deadlines, without missing own deadlines",
-        "Uses position to raise difficult issues on someone's behalf",
+        "Prend des sujets fastidieux pour l'équipe sans qu'on lui demande",
+        "Consacre du temps à aider en dehors de ses responsabilités directes",
+        "Organise des séances de peer programming au sein de la swarm",
       ],
       "examples": [
-        "Lead Watch cycles with little support while still contributing to projects",
-        "Started and drove the LGBTQIA ERG",
-        "Stayed positive and improved team morale during period after layoffs",
+        "S'est proposé pour changer de swarm afin d'aider une autre équipe",
+        "A refactoré des centaines de lignes de codes dans l'admin, le desk ou le livechat en dehors de ses responsabilités",
       ],
     }, {
-      "summary": "Exemplifies selflessness for the team without compromising responsibilities, and lifts everyone up",
+      "summary": "Aide à renforcer l'esprit d'équipe au sein de P&E",
       "signals": [
-        "Goes above and beyond on the Watch, serving the team without complaint",
-        "Implements concrete programs to signficantly improve team inclusivity",
-        "Takes on large amounts of tedious grunt work for the team without being asked",
+        "Est au courant des difficultés rencontrés dans les autres swarms et s'efforce d'apporter de l'aide",
+        "Créer des espaces et évenements pour créer du lien avec gens",
       ],
       "examples": [
-        "Devoted large amount of time to helping outside direct responsibilities",
-        "Refactored hundreds of legacy Shepherd nodes",
-        "Acted as sole maintainer of Boxen for years",
+        "A mis en place des workshop pour aider les autres à monter en compétences afin qu'ils puissent avancer sur leur sujet technique",
+        "A participé à l'organisation du sortons du cadre de la r&d",
+        "A mis en place la genius roulette",
+        "A mis en place les jeudize",
       ],
     }, {
-      "summary": "Lives the company values, guards positive culture, and defines policies that support relatedness between teams",
+      "summary": "Protège la culture positive et définit les politiques qui soutiennent les relations entre les équipes",
       "signals": [
-        "Brings separate teams together to build relatedness",
-        "Holds individuals, teams, and leadership accountable to Medium's values",
-        "Sets the tone, policy, and goals around maintaining an inclusive company",
+        "Rassembler des équipes distinctes pour créer des liens",
+        "Définit le ton, la politique et les objectifs concernant le maintien d'une entreprise inclusive et participative",
       ],
       "examples": [
-        "Organized wine and olive tasting offsite to Napa for the whole engineering org",
-        "Devised, delivered and acted on findings from an engineer happiness survey",
-        "Challenged and corrected exclusionary behaviour or policies",
+        "Organise les genius beer",
+        "Organise les Conversation with",
       ],
     }],
   },
 }
 
-export const trackIds: TrackId[] = Object.keys(tracks)
+export const trackIds = Object.keys(tracks)
 
-export const categoryIds: Set<string> = trackIds.reduce((set, trackId) => {
+export const categoryIds = trackIds.reduce((set, trackId) => {
   set.add(tracks[trackId].category)
   return set
 }, new Set())
 
-export const categoryPointsFromMilestoneMap = (milestoneMap: MilestoneMap) => {
+export const categoryPointsFromMilestoneMap = (milestoneMap) => {
   let pointsByCategory = new Map()
   trackIds.forEach((trackId) => {
     const milestone = milestoneMap[trackId]
@@ -1184,29 +1127,32 @@ export const categoryPointsFromMilestoneMap = (milestoneMap: MilestoneMap) => {
   })
 }
 
-export const totalPointsFromMilestoneMap = (milestoneMap: MilestoneMap): number =>
+export const totalPointsFromMilestoneMap = (milestoneMap) =>
   trackIds.map(trackId => milestoneToPoints(milestoneMap[trackId]))
     .reduce((sum, addend) => (sum + addend), 0)
 
 export const categoryColorScale = d3.scaleOrdinal()
   .domain(categoryIds)
-  .range(['#00abc2', '#428af6', '#e1439f', '#e54552'])
 
-export const titles = [
-  {label: 'Engineer I', minPoints: 0, maxPoints: 16},
-  {label: 'Engineer II', minPoints: 17, maxPoints: 35},
-  {label: 'Senior Engineer', minPoints: 36, maxPoints: 57},
-  {label: 'Group Lead', minPoints: 36, maxPoints: 57},
-  {label: 'Staff Engineer', minPoints: 58, maxPoints: 89},
-  {label: 'Senior Group Lead', minPoints: 58, maxPoints: 89},
-  {label: 'Principal Engineer', minPoints: 90},
-  {label: 'Director of Engineering', minPoints: 90}
-]
 
-export const eligibleTitles = (milestoneMap: MilestoneMap): string[] => {
-  const totalPoints = totalPointsFromMilestoneMap(milestoneMap)
-
-  return titles.filter(title => (title.minPoints === undefined || totalPoints >= title.minPoints)
-                             && (title.maxPoints === undefined || totalPoints <= title.maxPoints))
-    .map(title => title.label)
+.range(['#1BC74B', '#0099FF', '#88d7e7', '#ff4d4d'])
+export const roles = {
+  'SCRUM_MASTER': {
+    label: 'Scrum Master',
+    url: 'scrum-master'
+  },
+  'EXTERNAL_REFERENT': {
+    label: 'External Referent',
+    url: 'external-referent'
+  },
+  'ENGINEER_PROJECT_OWNER': {
+    label: 'Engineering Project Owner',
+    url: 'engineering-project-owner'
+  },
+  'ARCHITECTURE_OWNER': {
+    label: 'Architecture Owner',
+    url: 'architcture-owner'
+  },
 }
+
+export const rolesIds = Object.keys(roles)

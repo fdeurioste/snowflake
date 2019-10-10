@@ -1,16 +1,7 @@
-// @flow
-
 import React from 'react'
 import { trackIds, tracks, categoryColorScale } from '../constants'
-import type { MilestoneMap, TrackId } from '../constants'
 
-type Props = {
-  milestoneByTrack: MilestoneMap,
-  focusedTrackId: TrackId,
-  setFocusedTrackIdFn: (TrackId) => void
-}
-
-class TrackSelector extends React.Component<Props> {
+class TrackSelector extends React.Component {
   render() {
     return (
       <table>
@@ -18,13 +9,11 @@ class TrackSelector extends React.Component<Props> {
           table {
             width: 100%;
             border-spacing: 3px;
-            border-bottom: 2px solid #ccc;
-            padding-bottom: 20px;
             margin-bottom: 20px;
             margin-left: -3px;
           }
           .track-selector-value {
-            line-height: 50px;
+            line-height: 35px;
             width: 50px;
             text-align: center;
             background: #eee;
@@ -32,6 +21,7 @@ class TrackSelector extends React.Component<Props> {
             font-size: 24px;
             border-radius: 3px;
             cursor: pointer;
+            color: #FFFFFF;
           }
           .track-selector-label {
             text-align: center;
@@ -49,7 +39,7 @@ class TrackSelector extends React.Component<Props> {
           <tr>
             {trackIds.map(trackId => (
               <td key={trackId} className="track-selector-value"
-                  style={{border: '4px solid ' + (trackId == this.props.focusedTrackId ? '#000': categoryColorScale(tracks[trackId].category)), background: categoryColorScale(tracks[trackId].category)}}
+                  style={{border: '3px solid ' + (trackId == this.props.focusedTrackId ? '#000': categoryColorScale(tracks[trackId].category)), background: categoryColorScale(tracks[trackId].category)}}
                   onClick={() => this.props.setFocusedTrackIdFn(trackId)}>
                 {this.props.milestoneByTrack[trackId]}
               </td>

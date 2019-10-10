@@ -1,0 +1,132 @@
+@font-face {
+    font-family: "proxima nova";
+    src: url("/static/fonts/proximanova-light-webfont.eot");
+    src:
+        url("/static/fonts/proximanova-light-webfont.eot?#iefix") format("embedded-opentype"),
+        url("/static/fonts/proximanova-light-webfont.woff") format("woff"),
+        url("/static/fonts/proximanova-light-webfont.ttf") format("truetype"),
+        url("/static/fonts/proximanova-light-webfont.svg#proxima_novalight") format("svg");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "proxima nova";
+    src: url("/static/onts/proximanova-regular-webfont.eot");
+    src:
+        url("/static/fonts/proximanova-regular-webfont.eot?#iefix") format("embedded-opentype"),
+        url("/static/fonts/proximanova-regular-webfont.woff") format("woff"),
+        url("/static/fonts/proximanova-regular-webfont.ttf") format("truetype"),
+        url("/static/fonts/proximanova-regular-webfont.svg#proxima_nova_rgregular") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "proxima nova";
+    src: url("/static/fonts/proximanova-semibold-webfont.eot");
+    src:
+        url("/static/fonts/proximanova-semibold-webfont.eot?#iefix") format("embedded-opentype"),
+        url("/static/fonts/proximanova-semibold-webfont.woff") format("woff"),
+        url("/static/fonts/proximanova-semibold-webfont.ttf") format("truetype"),
+        url("/static/fonts/proximanova-semibold-webfont.svg#proxima_novasemibold") format("svg");
+    font-weight: bold;
+    font-style: normal;
+}
+body {
+    font-family: 'proxima nova', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #34393F;
+    font-size: 15px;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #C5C9CF;
+    margin: 20px 0;
+}
+
+h1 {
+    color: #26282d;
+    width: 960px;
+    margin: 0 auto;
+}
+
+h4 {
+    margin: 15px 0 10px 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+li { 
+    padding-left: 10px; 
+    text-indent: -10px;    
+}
+li:before { 
+    content: '■'; 
+    padding-right:7px; 
+    color: rgba(27, 199, 75, 0.5); 
+}
+
+p {
+    margin: 0;
+    Padding: 0;
+}
+
+a {
+    color: #34393F;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0099FF;
+}
+
+main {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.titleList {
+    margin: 15px 0;
+}
+
+.titleList li {
+    padding-left: 0;
+    text-indent: 0;
+}
+
+.titleList li:before {
+    margin: 3px 0;
+    padding: 0 10px 0 9px;
+    content: '';
+    border: 1px solid #EEEFF0;
+}
+
+.titleList .checked:before {
+    margin: 3px 0;
+    content: '\2713';
+    padding: 0 4px;
+    color: rgba(27, 199, 75, 1); 
+}
+
+.titleList a {
+    margin: 3px 0 3px 0px;
+    padding: 0 10px;
+    display: inline-block;
+}
+
+.titleList .checked a {
+    margin-left: 0;
+}
+
+.description {
+    margin-bottom: 15px;
+}
