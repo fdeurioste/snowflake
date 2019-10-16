@@ -30,7 +30,16 @@ const Index = props => (
       </div>
       <h1>{data.FIRSTNAME} {data.LASTNAME}</h1>
       <h2>Missions</h2>
-      <p className="description">Plop</p>
+      <p className="description">L’ External Referent est l’interlocuteur direct de la swarm pour 
+      les questions techniques simples qui arrivent de l’extérieur de swarm.
+       Pour toutes questions relatives à des projets en cours il redirigera vers le technical project owner le cas échéant.</p>
+    <ul>
+      <li>Etre actif sur la room publique de la swarm afin de lire les questions qui peuvent y être posées</li>
+      <li>Répondre aux questions simples rapidement</li>
+      <li>Rediriger les interlocuteurs vers la bonne personne le cas échéant</li>
+      <li>Etre l’interlocuteur privilégié du support</li>
+      <li>Informer les External Referents des autres swarms des éléments importants et/ou impactants</li>
+    </ul>
     <hr />
     <div>
       <h2>Minimum Requis</h2>

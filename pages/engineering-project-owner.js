@@ -30,7 +30,20 @@ const Index = props => (
       </div>
       <h1>{data.FIRSTNAME} {data.LASTNAME}</h1>
       <h2>Missions</h2>
-      <p className="description">Plop</p>
+      <p className="description">
+      Le engineering project owner est responsable du suivi d’un projet au sein d’une swarm, 
+      il lead les processus techniques et est le référent technique interne et externe des projets qui lui sont confiés. 
+      Il assure le lien entre la gestion fonctionnelle et technique en collaborant avec toutes les parties prenantes d’un projet. 
+      Enfin il est le référent externe des sujets dont il a la charge.
+      </p>
+
+      <ul>
+        <li>S’assurer que le backlog d’un projet est maintenu et estimé</li>
+        <li>Participer et organiser les specs techniques</li>
+        <li>Suivre le projet dans toutes les phases du build</li>
+        <li>S’assurer que les recettes soient bien décrites et réalisées</li>
+        <li>Mener à bien le delivery du projet</li>
+      </ul>
     <hr />
     <div>
       <h2>Minimum Requis</h2>
