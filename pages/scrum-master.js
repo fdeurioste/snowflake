@@ -62,7 +62,7 @@ au sein de l'organisation</li>
     </ul>
     <hr />
     <div>
-      <h2>Minimum Requis</h2>
+      <h2>Niveaux Attendus</h2>
       <SnowflakeApp data={data} />
     </div>
   </main>

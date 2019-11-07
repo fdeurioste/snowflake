@@ -46,7 +46,7 @@ const Index = props => (
       </ul>
     <hr />
     <div>
-      <h2>Minimum Requis</h2>
+      <h2>Niveaux Attendus</h2>
       <SnowflakeApp data={data} />
     </div>
   </main>
