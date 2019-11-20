@@ -15,7 +15,8 @@
   },
   "scripts": {
     "dev": "next",
-    "start": "next start -p $PORT"
+    "start": "next start -p $PORT",
+    "export": "next build && next export"
   },
   "devDependencies": {
     "flow-bin": "^0.106.3"
