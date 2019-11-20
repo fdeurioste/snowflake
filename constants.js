@@ -913,62 +913,54 @@ export const tracks = {
   "EVANGELISME": {
     "displayName": "Evangélisme",
     "category": "D",
-    "description": "Promeut iAdvize vers le monde extérieur et l'établit comme un lieu de travail attrayant",
+    "description": "Contribue à l'écosystème technique extérieur avec un rayonnement positif direct ou indirect pour iAdvize",
     "milestones": [{
-      "summary": "Représente bien iAdvize extérieurement et influence positivement les individus",
+      "summary": "Participe à des évènements tech organisés par iAdvize ou chez iAdvize et intéragit avec les participants",
       "signals": [
-        "Partage les succès personnels et organisationnels avec leur réseau",
         "Participe à des événements hébergés par iAdvize et discute avec les invités",
-        "Communique une excitation authentique et honnête à propos de leur travail à l'extérieur",
+        "Se met dans une position d'échange tech lors d'évenements ou de rencontres",
       ],
       "examples": [
-        "A agi comme guide pour un visiteur non-ami au bureau",
-        "A présenté son rôle et son poste à des visiteurs",
-        "A porté des vêtements au couleur d'iAdvize en dehors du cadre du travail",
+        "A participé au meetup React Nantes et est resté échanger avec les autres participants",
+        "A agi comme guide pour un visiteur au bureau pendant le hacker-x",
+        "A présenté son rôle et son poste pendant le Hacker-x",
       ],
     }, {
-      "summary": "Participe à de petits événements et prend des mesures simples qui influencent positivement des groupes de personnes",
+      "summary": "Contribue à l'organisation d'évènements tech, partage des retours d'expérience simple à l'extérieur, ou participe à des projets open-source d'iAdvize",
       "signals": [
-        "Prend des mesures significatives pour présenter les gens à iAdvize",
+        "Partage régulièrement des retours d'expériences",
         "Organise des événements positifs de petite ou moyenne envergure qui amènent les gens à iAdvize",
+        "Participe aux projets open-source d'iAdvize",
       ],
       "examples": [
-        "S'est porté volontaire comme aide aux évènements 'Conversation'",
-        "A organisé un petit tour des locaux à un groupe d'élèves",
-        "A représenté iAdvize de façon approprié auprès des intégrateurs ou clients via téléphone ou Slack",
+        "A speaké lors d'une conférence au web2day ou a publié son premier article de bilan d'une conférence sur le blog tech d'iAdvize",
+        "A participé à l'organisation d'un meetup Scala chez iAdvize",
+        "A effectué ou mergé une Pull Request sur le repo public Github 'dataway' d'iAdvize",
       ],
     }, {
-      "summary": "S’investi pour influencer positivement de grands groupes de personnes sur leurs vision de iAdvize",
+      "summary": "Organise activement des évènements tech, et incite les autres à participer à des actions de partage à l'ecosystème tech extérieur",
       "signals": [
-        "Mentors ou participe de manière très visible à une organisation externe",
-        "Construit des partenariats fructueux avec des organisations externes",
-        "Écrit des articles de blog à propos de iAdvize qui génèrent un trafic modéré",
+        "Propose des guidelines sur les projets open-source ou la rédaction d'articles tech",
+        "Identifie et propose aux membres de l'équipe des thématiques de partage tech exterieur",
+        "Prend l'initiative d'open-sourcer des projets ou les maintient",
       ],
       "examples": [
-        "A Représenté iAdvize lors d'une conférence d'experts de l'industrie",
-        "A participé activement à un programme Genius Care",
+        "A opensourcé la 'front-ui-library' sur le Github d'iAdvize et rédigé un article de blog pour présenter la démarche",
+        "Est ou a été guild master de la guild open source",
       ],
     }, {
-      "summary": "Établit iAdvize comme une grande entreprise innovante et lieu de travail pour l'ensemble de l'industrie",
+      "summary": "Organise et coordonne l'ensemble des actions qui contribuent à l'écosystème tech extérieur",
       "signals": [
-        "S'établit comme un leader d'opinion de l'industrie qui attire les talents",
-        "Publie du matériel sur les innovations organisationnelles ou techniques de iAdvize",
-        "Utilise un nombre significative de followers pour évangéliser iAdvize",
+        "Définit la ligne éditoriale tech d'iAdvize",
+        "Identifie et planifie les confs dans lesquels envoyer des speakers en proposant des thématiques pertinentes",
       ],
-      "examples": [
-        "Publication d'un article sur la technologie iAdvize dans une revue",
-      ],
+      "examples": [],
     }, {
-      "summary": "Introduit iAdvize sous un jour positif pour un public plus large en dehors de l'industrie",
-      "signals": [
-        "Fournit des messages clés à un large public",
-        "Influence les personnes ayant un large public pour parler positivement de iAdvize",
-        "Favorise la reconnaissance et l'adoption de iAdvize en nombre significatif",
-      ],
+      "summary": "Définit la stratégie globale pour faire rayonner la tech et rendre iAdvize attractif",
+      "signals": [],
       "examples": [
-        "Publié ou interviewé dans un journal grand public ou un site Web hors technologie",
-        "Présenter une keynote à une conférence avec une attention internationale",
-        "Représenté iAdvize dans les médias télévisés nationaux",
+        "A publié ou interviewé dans un journal grand public ou un site Web hors technologie",
+        "A représenté iAdvize dans les médias télévisés nationaux",
       ],
     }],
   },
